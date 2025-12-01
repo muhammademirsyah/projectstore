@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ghaniyy Store - Layanan Akademik & Digital Premium</title>
+  <link rel="stylesheet" href="src/css/styles.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">
+        <img src="assets/logo1.png" alt="Ghaniyy Store" class="logo-img"/>
+        <span class="brand-text">Ghaniyy Store</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="#home">Home</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#produk">Produk</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+
+      <div class="header-actions">
+        <input id="search" class="search" placeholder="Cari layanan atau produk..." />
+        <a id="wa-contact" class="btn btn-primary" target="_blank" href="https://wa.me/62895374651500?text=Halo,%20saya%20tertarik%20dengan%20layanan%20Ghaniyy%20Store">WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1>Solusi Layanan Akademik & Digital Premium</h1>
+        <p>Layanan profesional untuk mahasiswa, dosen, dan profesional. Cepat, terpercaya, dan berkualitas tinggi.</p>
+        <div class="hero-cta">
+          <a href="#layanan" class="btn btn-primary">Lihat Layanan</a>
+          <a href="#produk" class="btn btn-ghost">Produk Premium</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">300+</div>
+            <div class="stat-label">Pelanggan Puas</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">4.9/5</div>
+            <div class="stat-label">Rating</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Support</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="assets/hero.svg" alt="Hero Ghaniyy Store" />
+      </div>
+    </div>
+  </section>
+
+  <!-- LAYANAN AKADEMIK -->
+  <section id="layanan" class="container section">
+    <div class="section-head">
+      <h2>Layanan Akademik</h2>
+      <p class="section-subtitle">Dukung kesuksesan akademik Anda dengan layanan profesional kami</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card" onclick="orderTurnitin()">
+        <div class="service-icon">📊</div>
+        <h3>Cek Turnitin</h3>
+        <p>Pengecekan plagiarisme profesional dengan Turnitin original. Hasil akurat dan cepat.</p>
+        <div class="service-price">Mulai Rp 45.000</div>
+        <div class="btn btn-ghost btn-sm">Pesan Sekarang</div>
+      </div>
+
+      <div class="service-card" onclick="orderTurnitinAI()">
+        <div class="service-icon">🤖</div>
+        <h3>Cek Turnitin AI</h3>
+        <p>Deteksi konten AI-generated dengan teknologi Turnitin AI Detection terbaru.</p>
+        <div class="service-price">Mulai Rp 50.000</div>
+        <div class="btn btn-ghost btn-sm">Pesan Sekarang</div>
+      </div>
+
+      <div class="service-card" onclick="orderParafrase()">
+        <div class="service-icon">✍️</div>
+        <h3>Parafrase Akademik</h3>
+        <p>Turunkan similarity score dengan parafrase profesional dan tetap mempertahankan makna.</p>
+        <div class="service-price">Harga Variatif</div>
+        <div class="btn btn-ghost btn-sm">Cek Harga</div>
+      </div>
+
+      <div class="service-card" onclick="orderNaskah()">
+        <div class="service-icon">📝</div>
+        <h3>Perbaikan Naskah</h3>
+        <p>Perbaikan daftar isi, daftar pustaka, Mendeley, formatting, dan struktur naskah.</p>
+        <div class="service-price">Konsultasi Gratis</div>
+        <div class="btn btn-ghost btn-sm">Konsultasi</div>
+      </div>
+
+      <div class="service-card" onclick="orderJurnal()">
+        <div class="service-icon">🎓</div>
+        <h3>Publish Jurnal</h3>
+        <p>Bantuan publikasi jurnal ilmiah di jurnal nasional dan internasional bereputasi.</p>
+        <div class="service-price">Konsultasi Gratis</div>
+        <div class="btn btn-ghost btn-sm">Konsultasi</div>
+      </div>
+
+      <div class="service-card" onclick="showAPK()">
+        <div class="service-icon">📱</div>
+        <h3>Aplikasi Premium</h3>
+        <p>Akses aplikasi premium seperti Canva, ChatGPT, Netflix, Spotify, dan banyak lagi.</p>
+        <div class="service-price">Mulai Rp 13.000</div>
+        <div class="btn btn-ghost btn-sm">Lihat Aplikasi</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUK PREMIUM -->
+  <section id="produk" class="container section bg-light">
+    <div class="section-head">
+      <h2>Produk Digital Premium</h2>
+      <div id="filters" class="filters"></div>
+    </div>
+    <div id="product-list" class="grid"></div>
+  </section>
+
+  <!-- APLIKASI PREMIUM DETAIL -->
+  <section id="apkBox" class="container section" style="display:none;">
+    <div class="section-head">
+      <h2>Pilih Aplikasi Premium</h2>
+      <p class="section-subtitle">Akun premium terpercaya dengan harga terjangkau</p>
+    </div>
+    <div class="apk-grid">
+      <button class="apk-btn" onclick="pilihAPK('Canva')">
+        <span class="apk-icon">🎨</span>
+        <span>Canva Pro</span>
+      </button>
+      <button class="apk-btn" onclick="pilihAPK('Capcut')">
+        <span class="apk-icon">🎬</span>
+        <span>Capcut Pro</span>
+      </button>
+      <button class="apk-btn" onclick="pilihAPK('ChatGPT')">
+        <span class="apk-icon">🤖</span>
+        <span>ChatGPT Plus</span>
+      </button>
+      <button class="apk-btn" onclick="pilihAPK('Deepl')">
+        <span class="apk-icon">🌐</span>
+        <span>DeepL Pro</span>
+      </button>
+      <button class="apk-btn" onclick="pilihAPK('Disney Hotstar')">
+        <span class="apk-icon">🏰</span>
+        <span>Disney+ Hotstar</span>
+      </button>
+      <button class="apk-btn" onclick="pilihAPK('Gamma APP')">
+        <span class="apk-icon">📊</span>
+        <span>Gamma App</span>
+      </button>
+      <button class="apk-btn" onclick="pilihAPK('Iflix')">
+        <span class="apk-icon">🎥</span>
+        <span>Iflix</span>
+      </button>
+      <button class="apk-btn" onclick="pilihAPK('Netflix')">
+        <span class="apk-icon">🎬</span>
+        <span>Netflix</span>
+      </button>
+      <button class="apk-btn" onclick="pilihAPK('Picsart')">
+        <span class="apk-icon">🖼️</span>
+        <span>Picsart Gold</span>
+      </button>
+      <button class="apk-btn" onclick="pilihAPK('PrimeVideo')">
+        <span class="apk-icon">📺</span>
+        <span>Prime Video</span>
+      </button>
+      <button class="apk-btn" onclick="pilihAPK('Quillbot')">
+        <span class="apk-icon">✏️</span>
+        <span>Quillbot Premium</span>
+      </button>
+      <button class="apk-btn" onclick="pilihAPK('Spotify')">
+        <span class="apk-icon">🎵</span>
+        <span>Spotify Premium</span>
+      </button>
+      <button class="apk-btn" onclick="pilihAPK('Vidio')">
+        <span class="apk-icon">📱</span>
+        <span>Vidio Premier</span>
+      </button>
+      <button class="apk-btn" onclick="pilihAPK('Viu')">
+        <span class="apk-icon">📺</span>
+        <span>Viu Premium</span>
+      </button>
+      <button class="apk-btn" onclick="pilihAPK('Youtube')">
+        <span class="apk-icon">▶️</span>
+        <span>YouTube Premium</span>
+      </button>
+      <button class="apk-btn" onclick="pilihAPK('Zoom')">
+        <span class="apk-icon">📹</span>
+        <span>Zoom Pro</span>
+      </button>
+      <button class="apk-btn" onclick="pilihAPK('lain')">
+        <span class="apk-icon">➕</span>
+        <span>Lainnya</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- KONTAK -->
+  <section id="kontak" class="container section">
+    <div class="contact-box">
+      <h2>Hubungi Kami</h2>
+      <p>Siap membantu Anda 24/7. Chat admin untuk konsultasi gratis dan pemesanan cepat.</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <span class="contact-icon">📱</span>
+          <div>
+            <div class="contact-label">WhatsApp</div>
+            <div class="contact-value">0895-3746-51500</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">⭐</span>
+          <div>
+            <div class="contact-label">Rating</div>
+            <div class="contact-value">4.9/5 dari 300+ pelanggan</div>
+          </div>
+        </div>
+      </div>
+      <a class="btn btn-primary btn-lg" href="https://wa.me/62895374651500?text=Halo%20Ka,%20saya%20mau%20konsultasi%20tentang%20layanan%20Ghaniyy%20Store" target="_blank">Chat Admin Sekarang</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Ghaniyy Store</h4>
+          <p>Penyedia layanan akademik dan digital premium terpercaya sejak 2020.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Layanan</h4>
+          <ul>
+            <li><a href="#layanan">Cek Turnitin</a></li>
+            <li><a href="#layanan">Parafrase</a></li>
+            <li><a href="#layanan">Perbaikan Naskah</a></li>
+            <li><a href="#layanan">Publish Jurnal</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Produk</h4>
+          <ul>
+            <li><a href="#produk">Aplikasi Premium</a></li>
+            <li><a href="#produk">Akun Hiburan</a></li>
+            <li><a href="#produk">Software Kreatif</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kontak</h4>
+          <ul>
+            <li><a href="https://wa.me/62895374651500" target="_blank">WhatsApp</a></li>
+            <li><a href="#" id="ig">Instagram</a></li>
+            <li><a href="#" id="fb">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Ghaniyy Store. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="src/js/products.js"></script>
+  <script src="src/js/app.js"></script>
+
+</body>
+</html>
